@@ -1,42 +1,49 @@
 # DEBIAN 10 setting and debug for VM
 
-## -- SETTINGS --
+## ** WARNING: It's necessary to attribute +10Go to VM disk space **
 
-### Editer les sources
+## -- SETTING --
+
+### Edit sources
 nano /etc/apt/sources.list
 
-(en s'aidant du lien)
+(Help link)
 https://wiki.debian.org/SourcesList?action=show&redirect=sources.list
 
-### Permettre la synchronisation sshfs
+### To permit sshfs (ssh too)
 - VM: 
-    * sudo apt-get install openssh-server
+    * > sudo apt-get install openssh-server
+    * configuration de la VM: permettre la promiscuité
 
 - Hôte: 
     * sudo apt-get install sshfs
-    * sudo sshfs -o allow_other user@192.168.43.9:/ /mnt/application-test
+    * sudo sshfs -o allow_other $USER@XXX.XXX.XXX.XXX:/ $MOUNT_POINT
+
+### Install Nodejs
+
+### Install Mongo
 
 ## -- DEBUG -- 
 
-### Accéder aux logs
+### Logs access
 nano /var/log/
 
-### Changer le propriétaire d'un fichier/dossier
+### Change owner of file/directory
 chown $USER $FILE_OR_DIRECTORY
 
-### Changer les droits sur un fichier
+### Change rights on file
 chmod NNN $FILE_OR_DIRECTORY 
 
-### Gérer les partitions
+### Partition management
 - Prérequis: ajouter /sbin dans le $PATH (soit dans ~.profile, soit ~/.bash_profile etc.)
 
 fdisk | df
 
-### Lister les groupes
+### List groups (that's funny)
 groups
 
-### Supprimer les paquets inutiles automatiquement
+### Autoremove useless packages
 sudo apt autoremove
 
-### Supprimer les paquets et leurs dépendances
+### Remove packages and dependencies
 sudo apt remove --purge $PAQUET
