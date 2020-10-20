@@ -21,7 +21,7 @@ https://wiki.debian.org/SourcesList?action=show&redirect=sources.list
 ### To permit sshfs (ssh too)
 - VM:
     * > sudo apt-get install openssh-server
-    * configuration de la VM: permettre la promiscuité
+    * VM config: allow promiscuity
 
 - Hôte:
     * > sudo apt-get install sshfs
@@ -51,7 +51,7 @@ Install ufw:
 => Doc : https://doc.ubuntu-fr.org/permissions
 
 ### Partition management
-- Prérequis: ajouter /sbin dans le $PATH (soit dans ~.profile, soit ~/.bash_profile etc.)
+- Prerequisite: add /sbin in $PATH (in ~.profile, or ~/.bash_profile etc.)
 
 fdisk | df
 
